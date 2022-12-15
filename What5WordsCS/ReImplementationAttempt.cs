@@ -119,12 +119,12 @@ namespace What5WordsCS
             }
 
             // rearrange letter order based on lettter frequency (least used letter gets lowest index)
-            var reverseLetterFrequencyOrder = Freq.OrderByDescending(x => x.f).ToArray();
+            var reverseLetterFrequencyOrder = Freq.OrderBy(x => x.f).ToArray();
             var reverseLetterOrder = new int[26];
             for (var i = 0; i < reverseLetterFrequencyOrder.Count(); i++)
             {
                 LetterOrder[i] = reverseLetterFrequencyOrder[i].l;
-                reverseLetterOrder[Freq[i].l] = i;
+                reverseLetterOrder[reverseLetterFrequencyOrder[i].l] = i;
             }
 
             // build index based on least used letter
